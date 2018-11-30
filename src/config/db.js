@@ -1,9 +1,9 @@
 module.exports = {
-    MYSQL_ADDON_DB: 'btvou8cco',
-    MYSQL_ADDON_USER: 'uizmmgesejql3pfh',
-    MYSQL_ADDON_PASSWORD: 'EnDJB2IP42QkrQvXkTI',
+    database: 'MYSQL_ADDON_DB',
+    username: 'MYSQL_ADDON_USER',
+    password: 'MYSQL_ADDON_PASSWORD',
     options: {
-        MYSQL_ADDON_HOST: 'btvou8cco-mysql.services.clever-cloud.com',
+        host: 'MYSQL_ADDON_HOST',
         dialect: 'mysql'
     }
 }
