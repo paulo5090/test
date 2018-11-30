@@ -40,3 +40,5 @@ models.sequelize.sync().then(function() {
     console.log('Express server listening on port 3000');
   });
 });
+
+//cc je suis la nouvelle version t bo

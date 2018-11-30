@@ -5,3 +5,5 @@ module.exports = (sequelize, DataTypes) => {
   
     return User;
   };
+
+  //cc je suis la nouvelle version t bo
