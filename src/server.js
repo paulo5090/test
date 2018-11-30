@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express()
-//const models = require('./models/index');
+const models = require('./models/index');
 
 // Decode json and x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -18,6 +18,10 @@ app.get('/', function (req, res) {
       res.json(users)
     })
 })
+
+app.get('/', function(req, res) {
+     res.send('hello world');
+});
 
 // Add a new user to the database
 app.post('/', function(req, res) {
@@ -36,10 +40,6 @@ models.sequelize.sync().then(function() {
    * 
    * Listen only when database connection is sucessfull
    */
-
-   app.get('/', function(req, res) {
-     res.send('hello world');
-  });
 
   app.listen(process.env.PORT, function() {
     console.log('Express server listening on port 3000');
