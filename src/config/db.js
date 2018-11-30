@@ -7,5 +7,3 @@ module.exports = {
         dialect: 'mysql'
     }
 }
-
-//cc je suis la nouvelle version t bo

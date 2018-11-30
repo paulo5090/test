@@ -41,7 +41,7 @@ app.post('/', function(req, res) {
      res.send('hello world');
   });
 
-  app.listen(3000, function() {
+  app.listen(process.env.PORT, function() {
     console.log('Express server listening on port 3000');
   });
 //});
