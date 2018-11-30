@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 app.use(morgan('short'))
 
 // Get all the users defined
-/*app.get('/', function (req, res) {
+app.get('/', function (req, res) {
   models.User.findAll()
     .then((users) => {
       res.json(users)
@@ -27,10 +27,10 @@ app.post('/', function(req, res) {
     .then(() => {
       res.send('User added !')
     })
-})*/
+})
 
 // Synchronize models
-//models.sequelize.sync().then(function() {
+models.sequelize.sync().then(function() {
   /**
    * Listen on provided port, on all network interfaces.
    * 
@@ -44,4 +44,4 @@ app.post('/', function(req, res) {
   app.listen(process.env.PORT, function() {
     console.log('Express server listening on port 3000');
   });
-//});
+});
