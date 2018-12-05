@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
 //Creation d'un singe et insertion de ce dernier dans la base de donnee
 
 
-//repond "hello world" si une requete GET est envoyee a la page
+//repond "hello world" si une requete GET est envoyee
 app.get('/', function(req, res) {
      res.send('hello world');
 });
