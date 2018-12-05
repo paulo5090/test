@@ -25,13 +25,6 @@ app.get('/', function (req, res) {
 
 //Creation d'un singe et insertion de ce dernier dans la base de donnee
 
-var nameSchema = new process.env.MYSQL_ADDON_DB.Schema({
- firstName: String,
- lastNameName: String
-});
-
-var User = process.env.MYSQL_ADDON_DB.model("User", nameSchema);
-
 app.post("/addname", (req, res) => {
     var myData = new User(req.body);
       myData.save().then(item => {
