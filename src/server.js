@@ -11,14 +11,15 @@ app.use(bodyParser.json())
 // Add a bit of logging
 app.use(morgan('short'))
 
-// Get all the users defined
+// Donne tout les utilisateurs definis
+/*
 app.get('/', function (req, res) {
   models.User.findAll()
     .then((users) => {
       res.json(users)
     })
 })
-
+*/
 //Creation d'un singe et insertion de ce dernier dans la base de donnee
 
 
