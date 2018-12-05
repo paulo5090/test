@@ -1,25 +1,15 @@
 const express = require('express')
 const bodyParser = require('body-parser');
-//rajout
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 const morgan = require('morgan');
 const app = express()
 const models = require('./models/index');
-var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;mongoose.connect(process.env.MYSQL_ADDON_DB);
 
 // Decode json and x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // Add a bit of logging
-//app.use(morgan('short'))
-
-app.use("/", (req, res) => {
- res.sendFile(__dirname + "/index.pug");
-});
+app.use(morgan('short'))
 
 // Get all the users defined
 app.get('/', function (req, res) {
@@ -31,22 +21,6 @@ app.get('/', function (req, res) {
 
 //Creation d'un singe et insertion de ce dernier dans la base de donnee
 
-var nameSchema = new mongoose.Schema({
- firstName: String,
- lastNameName: String
-});
-
-var User = mongoose.model("User", nameSchema);
-
-app.post("/addname", (req, res) => {
-    var myData = new User(req.body);
-      myData.save().then(item => {
- res.send("item saved to database");
- })
-    .catch(err => {
-    res.status(400).send("unable to save to database");
- });
-});
 
 //repond "hello world" si une requete GET est envoyee a la page
 app.get('/', function(req, res) {
