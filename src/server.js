@@ -11,18 +11,6 @@ app.use(bodyParser.json())
 // Add a bit of logging
 app.use(morgan('short'))
 
-// Donne tout les utilisateurs definis
-/*
-app.get('/', function (req, res) {
-  models.User.findAll()
-    .then((users) => {
-      res.json(users)
-    })
-})
-*/
-//Creation d'un singe et insertion de ce dernier dans la base de donnee
-
-
 //repond "hello world" si une requete GET est envoyee
 app.get('/', function(req, res) {
      res.send('hello world');
@@ -38,13 +26,31 @@ app.post('/', function(req, res) {
     })
 })
 
+//Individu
+
+app.get('/individu', function(req, res){
+  models.Individu.findAll()
+  .then((individu) => {
+    res.json(individu)
+  })
+})
+
+app.post('/individu', function(req, res) {
+  models.Individu.create({
+    nom:req.body.nom,
+    image:req.body.image,
+    espece:req.body.espece,
+    datedenaissance:req.body.datedenaissance,
+    age:req.body.age,
+    enclo:req.body.enclo
+  })
+  .then((individu)=> {
+    res.json(individu);
+  })
+})
+
 // Synchronize models
 models.sequelize.sync().then(function() {
-  /**
-   * Listen on provided port, on all network interfaces.
-   * 
-   * Listen only when database connection is sucessfull
-   */
 
   app.listen(process.env.PORT, function() {
     console.log('Express server listening');
