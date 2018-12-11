@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    var Individu = sequelize.define('Individu', {
+    var Individus = sequelize.define('Individus', {
       name: DataTypes.STRING
       image: DataTypes.STRING
       espece: DataTypes.STRING
@@ -8,5 +8,5 @@ module.exports = (sequelize, DataTypes) => {
       enclo: DataTypes.STRING
     });
   
-    return Individu;
+    return Individus;
   };

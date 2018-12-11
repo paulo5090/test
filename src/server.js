@@ -28,15 +28,15 @@ app.post('/', function(req, res) {
 
 //Individu
 
-app.get('/individu', function(req, res){
-  models.Individu.findAll()
-  .then((individu) => {
-    res.json(individu)
+app.get('/individus', function(req, res){
+  models.Individus.findAll()
+  .then((individus) => {
+    res.json(individus)
   })
 })
 
-app.post('/individu', function(req, res) {
-  models.Individu.create({
+app.post('/individus', function(req, res) {
+  models.Individus.create({
     name: req.body.name,
     image: req.body.image,
     espece: req.body.espece,
@@ -46,6 +46,15 @@ app.post('/individu', function(req, res) {
   })
   .then((individu)=> {
     res.json(individu);
+  })
+})
+
+app.get('/individus/:id', function(req, res){
+  models.Individus.findOne({
+    id: req.params.id
+  })
+  .then((individu) => {
+    res.json(individu)
   })
 })
 
