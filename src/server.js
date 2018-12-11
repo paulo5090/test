@@ -37,12 +37,12 @@ app.get('/individu', function(req, res){
 
 app.post('/individu', function(req, res) {
   models.Individu.create({
-    nom:req.body.nom,
-    image:req.body.image,
-    espece:req.body.espece,
-    datedenaissance:req.body.datedenaissance,
-    age:req.body.age,
-    enclo:req.body.enclo
+    name: req.body.name,
+    image: req.body.image,
+    espece: req.body.espece,
+    datedenaissance: req.body.datedenaissance,
+    age: req.body.age,
+    enclo: req.body.enclo
   })
   .then((individu)=> {
     res.json(individu);

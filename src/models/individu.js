@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     var Individu = sequelize.define('Individu', {
-      nom: DataTypes.STRING
+      name: DataTypes.STRING
       image: DataTypes.STRING
       espece: DataTypes.STRING
       datedenaissance: DataTypes.FLOAT
