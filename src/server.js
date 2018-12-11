@@ -37,12 +37,12 @@ app.get('/individus', function(req, res){
 
 app.post('/individus', function(req, res) {
   models.Individus.create({
-    name: req.body.name /*,
+    name: req.body.name ,
     image: req.body.image,
     espece: req.body.espece,
     datedenaissance: req.body.datedenaissance,
     age: req.body.age,
-    enclo: req.body.enclo*/
+    enclo: req.body.enclo
   })
   .then((individu)=> {
     res.json(individu);
