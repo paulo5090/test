@@ -11,20 +11,6 @@ app.use(bodyParser.json())
 // Add a bit of logging
 app.use(morgan('short'))
 
-//repond "hello world" si une requete GET est envoyee
-app.get('/', function(req, res) {
-     res.send('hello world');
-});
-
-// Add a new user to the database et repond a une requete post par "User added"
-app.post('/', function(req, res) {
-  models.User.create({
-    username: req.body.username
-  })
-    .then(() => {
-      res.send('User added !')
-    })
-})
 
 //Individu
 
@@ -38,7 +24,7 @@ app.get('/individus', function(req, res){
 app.post('/individus', function(req, res) {
   models.Individus.create({
     name: req.body.name ,
-    image: req.body.image,
+    picture: req.body.picture,
     espece: req.body.espece,
     datedenaissance: req.body.datedenaissance,
     age: req.body.age,
@@ -56,12 +42,84 @@ app.get('/individus/:id', function(req, res){
   .then((individu) => {
     res.json(individu)
   })
+    .catch((err)=> {
+    res.json(err)
+  })
 })
 
-// Synchronize models
+app.put('/individus/:id', function(req, res){
+  models.Individus.update(
+    req.body, 
+    {
+      where: {
+      id: req.params.id
+    }
+  })
+  .then((individu) => {
+    res.json(individu)
+  })
+    .catch((err)=> {
+    res.json(err)
+  })
+})
+
+app.delete('/individus/:id', function(req, res) {
+models.Individus.destroy({
+  where: {
+    id: req.params.id
+  }
+})
+  .then((response) => {
+    res.json(response);
+  })
+  .catch((err)=> {
+    res.json(err)
+  })
+})
+
+app.put('/individus', function(req, res) {
+  const promises = [];
+
+  req.body.modifications
+    .forEach((item)=> {
+
+      promises.push(
+        models.Individus.update(
+          item.data,
+          {
+            where: {
+              id: item.id
+            }
+          }))
+    })
+
+    Promise.all(promises)
+      .then((response)=>{
+        res.json(response);
+      })
+      .catch((err)=>{
+        res.json(err)
+      })
+})
+
+app.delete('/individus', function(req, res) {
+models.Individus.destroy({
+  where: {
+    id: req.params.ids
+  }
+})
+  .then((response) => {
+    res.json(response);
+  })
+  .catch((err)=> {
+    res.json(err)
+  })
+})
+
+// Synchronize models (Enlever le force:true pour la version finale !){force:true}
 models.sequelize.sync().then(function() {
 
-  app.listen(process.env.PORT, function() {
+  app.listen(3000, function() {
     console.log('Express server listening');
   });
 });

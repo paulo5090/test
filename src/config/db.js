@@ -1,9 +1,9 @@
 module.exports = {
-    database: process.env.MYSQL_ADDON_DB,
-    username: process.env.MYSQL_ADDON_USER,
-    password: process.env.MYSQL_ADDON_PASSWORD,
+    database: 'singezbi',
+    username: 'root',
+    password: '',
     options: {
-        host: process.env.MYSQL_ADDON_HOST,
+        host: 'localhost',
         dialect: 'mysql'
     }
 }
