@@ -2,7 +2,7 @@ extends layout.pug
 
 block content
     .col-md-6
-       p #{id_singe}
+       p
        table.table.table-dark
            thead
                 tr
@@ -27,6 +27,5 @@ block content
                        a.btn.btn-primary(href=url3, role='button') modifier 
                     td
                        - var url4 = '/enclos/destroy/' + enclo.id
-                       a.btn.btn-danger(href=url4, role='button') X 
-
-      a.btn.btn-primary(href='/') Retour
+                       a.btn.btn-danger(href=url4, role='button') X
+                       a.btn.btn-primary(href='/') Retour
