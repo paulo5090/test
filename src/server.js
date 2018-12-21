@@ -201,7 +201,7 @@ app.get('/LierAEnclos/:id', function (req, res) {
 // Synchronize models (Enlever le force:true pour la version finale !){force:true}
 models.sequelize.sync().then(function() {
 
-  app.listen(3000, function() {
+  app.listen(process.env.PORT, function() {
     console.log('Express server listening');
   });
 });
