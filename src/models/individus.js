@@ -1,11 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
     var Individus = sequelize.define('Individus', {
-      name: DataTypes.STRING,
-      image: DataTypes.STRING,
+    	
+      nom: DataTypes.STRING,
       espece: DataTypes.STRING,
-      datedenaissance: DataTypes.FLOAT,
-      age: DataTypes.FLOAT,
-      enclo: DataTypes.STRING
+      numero: DataTypes.INTEGER,
+      age: DataTypes.INTEGER,
+      poids: DataTypes.INTEGER,
+      taille: DataTypes.INTEGER
     });
   
     return Individus;

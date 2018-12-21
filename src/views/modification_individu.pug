@@ -1,0 +1,27 @@
+extends layout.pug
+
+block content
+    h2 Mettre à jour un animal
+    
+    - var url = '/individus/update/' + id
+    form(method='POST' action=url)
+        div.form-group
+            label(for='nom') Nom:
+            input#nom.form-control(type="text", placeholder="nom de l'individu" name='nom')
+        div.form-group
+            label(for='num') Numero:
+            input#num.form-control(type="number", placeholder="numero de l'individu" name='num')
+        div.form-group
+            label(for='espece') Espece:
+            input#espece.form-control(type="text", placeholder="espece de l'individu" name='espece')
+        div.form-group
+            label(for='age') Age (en mois):
+            input#age.form-control(type="number", placeholder="Age de l'individu" name='age')
+        div.form-group
+            label(for='poids') Poids:
+            input#poids.form-control(type="number", placeholder="Poids de l'individu" name='poids')
+        div.form-group
+            label(for='taille') Taille (en cm):
+            input#taille.form-control(type="number", placeholder="Age de l'individu" name='taille')
+        button.btn.btn-success(type='submit') Valider
+        a.btn.btn-primary(href='/') Retour

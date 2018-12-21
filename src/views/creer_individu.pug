@@ -1,0 +1,28 @@
+extends layout.pug
+
+block content
+    h2 Ajouter un animal
+
+    - var url = '/individus' 
+    form(method='POST' action=url)
+        div.form-group
+            label(for='nom') Nom:
+            input#nom.form-control(type="text", placeholder="Nom de l'individu" name='nom')
+        div.form-group
+            label(for='espece') Espece:
+            input#espece.form-control(type="text", placeholder="Espece de l'individu" name='espece')
+        div.form-group
+            label(for='numero') Numero:
+            input#numero.form-control(type="number", placeholder="Numero de l'individu" name='numero')
+        div.form-group
+            label(for='age') Age (en mois):
+            input#age.form-control(type="number", placeholder="Age de l'individu" name='age')
+        div.form-group
+            label(for='poids') Poids:
+            input#poids.form-control(type="number", placeholder="Poids de l'individu" name='poids')
+        div.form-group
+            label(for='taille') Taille (en cm):
+            input#taille.form-control(type="number", placeholder="Age de l'individu" name='taille')
+        button.btn.btn-success(type='submit') Valider
+        a.btn.btn-primary(href='/') Retour
+    

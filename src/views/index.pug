@@ -1,0 +1,73 @@
+extends layout.pug
+block content
+    h1= title   
+    .col-md-6
+    h1.display-1(style= 'text-align: center;')  Animals manager 3000
+ 
+    - var enclosnb = enclos.length;
+    - var individusnb = individus.length;
+
+    p.lead(style= 'text-align: center;') Vous possedez #{individusnb} animaux et #{enclosnb} enclos
+    
+    hr
+
+    a.btn.btn-success(href='/createIndividus/', role='button' class="btn btn-primary btn-lg btn-block") Ajouter un animal
+
+    a.btn.btn-success(href='/createEnclos/', role='button' class="btn btn-secondary btn-lg btn-block") Ajouter un enclo
+
+    hr
+
+    table.table.table-dark
+        thead
+            tr
+            th Individus
+            th Espece
+            th Numero
+            th Age (en mois)
+            th Poids (en kg)
+            th Taille (en cm)
+            th modifier individu
+            th Lier un individu a un enclos
+            th supprimer individu
+        tbody
+        each individu in individus 
+            tr
+                td 
+                    - var url = '/individus/' + individu.id
+                    a(href=url) #{individu.nom}
+                td #{individu.espece}
+                td #{individu.numero}
+                td #{individu.age}
+                td #{individu.poids}
+                td #{individu.taille}
+                td 
+                    - var url1 = '/modification_individu/' + individu.id
+                    a.btn.btn-primary(href=url1, role='button') modifier 
+                td 
+                    - var url6 = '/lier_individu/' + individu.id
+                    a.btn.btn-primary(href=url6, role='button') Lier cet individu
+                td
+                    - var url2 = '/individus/destroy/' + individu.id
+                    a.btn.btn-danger(href=url2, role='button') X
+                    hr
+        table.table.table-dark
+           thead
+                tr
+                th Enclos
+                th Capacite
+                th modifier enclos 
+                th supprimer enclos
+
+           tbody
+           each enclo in enclos 
+               tr
+                td 
+                    - var url5 = '/enclos/' + enclo.id
+                    a(href=url5) #{enclo.nom}
+                td #{enclo.capacite} places
+                td 
+                    - var url3 = '/modification_enclos/' + enclo.id
+                    a.btn.btn-primary(href=url3, role='button') modifier 
+                td
+                    - var url4 = '/enclos/destroy/' + enclo.id
+                    a.btn.btn-danger(href=url4, role='button') X 

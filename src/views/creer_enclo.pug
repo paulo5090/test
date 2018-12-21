@@ -1,0 +1,15 @@
+extends layout.pug
+
+block content
+    h2 Creer un enclo
+
+    - var url = '/enclos' 
+    form(method='POST' action=url)
+        div.form-group
+            label(for='nom') Nom:
+            input#nom.form-control(type="text", placeholder="Nom de l'enclos" name='nom')
+        div.form-group
+            label(for='capacite') Capacite:
+            input#capacity.form-control(type="number", placeholder="Capacite de l'enclos" name='capacite')
+        button.btn.btn-success(type='submit') Valider
+        a.btn.btn-primary(href='/') Retour

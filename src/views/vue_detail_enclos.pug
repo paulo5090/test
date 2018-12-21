@@ -1,0 +1,38 @@
+extends layout.pug
+
+block content
+    .col-md-6
+       h3.display-3(style= 'text-align: center;')  Fiche enclo
+       .card.bg-dark.text-white
+           
+           .card-body(style='text-align: center; background-color:#222')
+              h4.card-title  #{enclos.nom}
+              p.card-text Capacite: #{enclos.capacite} places
+
+              - var url1 = '/modification_enclos/' + enclos.id
+              a.btn.btn-primary(href=url1, role='button') Mettre a jour
+              - var url2 = '/enclos/destroy/' + enclos.id
+              a.btn.btn-danger(href=url2, role='button') Supprimer
+
+       table.table.table-dark
+           thead
+               tr
+                   th Individus
+                   th Espece
+                   th Numero
+                   th Age
+                   th Poids
+                   th Taille
+           tbody
+           each individu in individus 
+               tr
+                   td 
+                      - var url = '/individus/' + individu.id
+                      a(href=url) #{individu.nom}
+                   td #{individu.espece}
+                   td #{individu.numero}
+                   td #{individu.age} mois
+                   td #{individu.poids} kg
+                   td #{individu.taille} cm
+
+       a.btn.btn-primary(href='/') Revenir au menu

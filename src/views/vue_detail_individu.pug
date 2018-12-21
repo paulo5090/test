@@ -1,0 +1,19 @@
+extends layout.pug
+
+block content
+    .col-md-6
+       h3.display-3(style= 'margin-left: 15px;')  Fiche animal
+       .card.bg-dark.text-white(style="width:400px; height:450px;")
+           img.card-img-top(src='img/bo.png', alt='Card image')
+           .card-body(style="text-align: center; background-color:#222")
+              h1.card-title  #{individu.nom}
+              p.card-text Espece: #{individu.espece}
+              p.card-text Numero: #{individu.numero}
+              p.card-text Age: #{individu.age} mois
+              p.card-text Poids: #{individu.poids} kg
+              p.card-text Taille: #{individu.taille} cm
+              - var url1 = '/modification_individu/' + individu.id
+              a.btn.btn-primary(href=url1, role='button') modifier
+              - var url2 = '/individus/destroy/' + individu.id
+              a.btn.btn-danger(href=url2, role='button') Supprimer
+              a.btn.btn-primary(href='/') Revenir au menu
